@@ -1,0 +1,21 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="contacts">
+    <h2>{{ title }}.</h2>
+
+    <address>
+        г. Москва, ул. Кино, д. 1, офис 101<br />
+        <abbr title="+7 (123) 456-78-90">P:</abbr>
+        425.555.0100
+    </address>
+
+    <address>
+        <strong>Поддержать:</strong>   <a id="links" href="mailto:Support@example.com">MovieHunterDonate@example.com</a><br />
+        <strong>Связаться:</strong> <a id="links" href="mailto:Marketing@example.com">MovieHunter@example.com</a>
+    </address>
+</div>
+
+
+{% endblock %}
