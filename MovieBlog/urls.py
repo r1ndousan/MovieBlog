@@ -30,4 +30,6 @@ urlpatterns = [
     path('links/', views.links, name='links'),
     path('applic_form/', views.application_form, name='applic_form'),
     path('registration/', views.registration, name= 'registration'),
+    path('blog', views.blog, name="blog"),
+    path('blogpost/<int:parametr>/', views.blogpost, name="blogpost"),
 ]
