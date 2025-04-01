@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - MovieHunter</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
     <link rel="shortcut icon" href="{% static 'app/content/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -17,19 +17,17 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-collapse collapse">
-                <a href="/" class="navbar-brand">
-                    <img src="{% static 'app/content/logo.jpg' %}" alt="logo" />
-                </a>
+                <a href="/" class="navbar-brand"><img src="{% static 'app/content/logo.jpg' %}" alt="logo" /></a>
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Главная</a></li>
-                    <li><a href="{% url 'about' %}">О нас</a></li>
-                    <li><a href="{% url 'contact' %}">Контакты</a></li>
-                    <li><a href="{% url 'links' %}">Полезные ресурсы</a></li>
-                    <li><a href="{% url 'applic_form' %}">Обратная связь</a></li>
+                    <li class="nav-item"><a href="{% url 'home' %}">Главная</a></li>
+                    <li class="nav_item"><a href="{% url 'blog' %}">Блог</a></li>
+                    <li class="nav-item"><a href="{% url 'about' %}">О нас</a></li>
+                    <li class="nav-item"><a href="{% url 'contact' %}">Контакты</a></li>
+                    <li class="nav-item"><a href="{% url 'links' %}">Ресурсы</a></li>
+                    <li class="nav-item"><a href="{% url 'applic_form' %}">Обратная связь</a></li>
+
                     {% if not user.is_authenticated %}
-
-                    <li><a href="{% url 'registration' %}">Регистрация</a></li>
-
+                    <li class="nav-item"><a href="{% url 'registration' %}">Регистрация</a></li>
                     {% endif %}
                 </ul>
                 {% include 'app/loginpartial.html' %}
