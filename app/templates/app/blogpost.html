@@ -1,8 +1,14 @@
 {% extends "app/layout.html" %}
 
 {% block content %}
+<div class="blogpost">
+    <h2 class="blog-title">{{ post_1.title }}</h2>
+    <p class="blog-content">{{ post_1.content|linebreaksbr }}</p>
 
-<h2>{{ post_1.title }}</h2>
-    <p>{{ post_1.content|linebreaksbr }}</p>
-<p><a id="links" href="{% url 'blog' %}">Назад</a></p>
+    <p><a id="links" href="{% url 'blog' %}">Назад</a></p>
+</div>
+
+<div class="comments">
+
+</div>
 {% endblock %}

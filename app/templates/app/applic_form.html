@@ -1,69 +1,72 @@
 {% extends "app/layout.html" %}
 {% block content %}
-{% if form != None %}
-<br><h2>Заполните анкету:</h2><br>
-<div>
-    <form method="post">
-        {% csrf_token %}
-        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
-        {{ form.name }}<br><br>
+<div class="applic-form">
+    {% if form != None %}
+    <br><h2>Заполните анкету:</h2><br>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+            {{ form.name }}<br><br>
 
-        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
-        {{ form.gender }}<br><br>
+            <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+            {{ form.gender }}<br><br>
 
-        <label for="{{ form.job.id_for_label }}">{{ form.job.label }}:</label>
-        {{ form.job }}<br><br>
+            <label for="{{ form.job.id_for_label }}">{{ form.job.label }}:</label>
+            {{ form.job }}<br><br>
 
-        <label for="{{ form.internet.id_for_label }}">{{ form.internet.label }}:</label>
-        {{ form.internet }}<br><br>
+            <label for="{{ form.internet.id_for_label }}">{{ form.internet.label }}:</label>
+            {{ form.internet }}<br><br>
 
-        <label for="{{ form.notice.id_for_label }}">{{ form.notice.label }}:</label>
-        {{ form.notice }}<br><br>
+            <label for="{{ form.notice.id_for_label }}">{{ form.notice.label }}:</label>
+            {{ form.notice }}<br><br>
 
-        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
-        {{ form.email }}<br><br>
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+            {{ form.email }}<br><br>
 
-        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label>
-        {{ form.message }}<br><br>
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label>
+            {{ form.message }}<br><br>
 
-        <button id="b1" type="submit">Отправить</button>
-        <script>
+            <button id="b1" type="submit">Отправить</button>
+            <script>
 
-            function b1_mouseover() {
-                $('#b1').css('color', '#a38f13');
-            }
-            $('#b1').mouseover(b1_mouseover);
+                function b1_mouseover() {
+                    $('#b1').css('color', '#a38f13');
+                }
+                $('#b1').mouseover(b1_mouseover);
 
-            function b1_mouseout() {
-                $('#b1').css('color', ''); 
-            }
-            $('#b1').mouseout(b1_mouseout); 
+                function b1_mouseout() {
+                    $('#b1').css('color', '');
+                }
+                $('#b1').mouseout(b1_mouseout);
 
-            function input_focus() {
-                $(this).css('background-color', '#c4b76a'); 
-            }
-            $('input[type="text"], input[type="email"], textarea').focus(input_focus);
+                function input_focus() {
+                    $(this).css('background-color', '#c4b76a');
+                }
+                $('input[type="text"], input[type="email"], textarea').focus(input_focus);
 
-            function input_blur() {
-                $(this).css('background-color', ''); 
-            }
-            $('input[type="text"], input[type="email"], textarea').blur(input_blur);
-        </script>
-    </form>
+                function input_blur() {
+                    $(this).css('background-color', '');
+                }
+                $('input[type="text"], input[type="email"], textarea').blur(input_blur);
+            </script>
+        </form>
+    </div>
+    {% else %}
+    <br><h2>Спасибо за предоставленную информацию.</h2>
+    <h3>Вы сообщили о себе следующее:</h3>
+    <ul>
+        <li><span>Имя:</span> {{ data.name }} </li>
+        <li><span>Пол:</span> {{ data.gender }} </li>
+        <li><span>Работа:</span> {{ data.job }} </li>
+        <li><span>Использование:</span> {{ data.internet }} </li>
+        <li><span>Получать новости сайта на e-mail:</span> {{ data.notice }} </li>
+        <li><span>Ваш e-mail:</span> {{ data.email }} </li>
+        <li><span>Отзыв:</span> {{ data.message }} </li>
+    </ul>
+    {% endif %}
 </div>
-{% else %}
-<br><h2>Спасибо за предоставленную информацию.</h2>
-<h3>Вы сообщили о себе следующее:</h3>
-<ul>
-    <li><span>Имя:</span> {{ data.name }} </li>
-    <li><span>Пол:</span> {{ data.gender }} </li>
-    <li><span>Работа:</span> {{ data.job }} </li>
-    <li><span>Использование:</span> {{ data.internet }} </li>
-    <li><span>Получать новости сайта на e-mail:</span> {{ data.notice }} </li>
-    <li><span>Ваш e-mail:</span> {{ data.email }} </li>
-    <li><span>Отзыв:</span> {{ data.message }} </li>
-</ul>
-{% endif %}
+
 
 
 {% endblock %}

@@ -6,16 +6,80 @@ body {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.4em;
 }
-
+.index {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-content: flex-start;
+}
 .quote {
     background-color: #22201a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     padding: 10px;
+    margin: 10px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-button {
+#myCarousel {
+    width: 400px;
+    height: 800px;
+    background-color: #22201a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    color: #e2ddca;
+}
+
+.carousel-inner {
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    height: 100%;
 
 }
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+    color: #e2ddca;
+}
+
+
+.carousel-indicators li {
+    color: #e2ddca;
+}
+
+.carousel-indicators .active {
+    background-color: #a38f13;
+}
+
+.carousel-caption {
+    position: static;
+    padding: 20px;
+}
+
+.carousel-title {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    color: #e2ddca;
+}
+
+.btn-default {
+    align-self: center;
+    background-color: #a38f13;
+    border-color: #22201a;
+}
+    .btn-default:hover {
+        background-color: #61550b; 
+        color: #181714;
+        border-color: #22201a;
+    }
 
 .navbar {
     background-color: #22201a;
@@ -51,14 +115,33 @@ button {
         margin: 0 10px; 
     }
 
+.links-li {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 
 #links {
     color: #a38f13;
     font-weight: bold;
+    width: 20%;
 }
 
-
+.intend {
+    width: 80%;
+    text-align: justify;
+    border-left: 2px solid;
+    border-color: #a38f13;
+    padding-left: 20px;
+}
 
  .intend {
     text-indent: 20px;
@@ -70,6 +153,116 @@ button {
      border-radius: 5px;
  }
 
+.blog {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.blog-title {
+    text-decoration: underline;
+}
+
+.blog-posted {
+    font-size: small;
+    color: #61550b;
+}
+
+.blog-description {
+
+}
+
+.blogpost {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: justify;
+}
+
+.about {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: justify;
+}
+
+.contacts {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: justify;
+}
+
+.registration {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: justify;
+}
+
+.applic-form {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: justify;
+}
+
+.login {
+    background-color: #22201a;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 50px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: justify;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
