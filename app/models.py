@@ -14,6 +14,7 @@ class Blog(models.Model):
     content = models.TextField(verbose_name = "Полное содержание")
     posted = models.DateTimeField(default = datetime.now(), db_index = True, verbose_name = "Опубликована")
     author = models.ForeignKey(User, null = True, blank = True, on_delete = models.SET_NULL, verbose_name = "Автор")
+    image = models.FileField(default = 'temp.png', verbose_name = "Путь к картинке")
 
     def get_absolute_url(self):
         return reverse("blogpost", args=[str(self.id)])
@@ -25,5 +26,21 @@ class Blog(models.Model):
         ordering = ["-posted"]
         verbose_name = "статья блога"
         verbose_name_plural = "статьи блога"
-
 admin.site.register(Blog)
+
+class Comment(models.Model):
+    author = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = "Автор")
+    text = models.TextField(verbose_name = "Текст комментария")
+    date = models.DateTimeField(default = datetime.now(), db_index = True, verbose_name = "Дата")
+    post = models.ForeignKey(Blog, on_delete = models.CASCADE, verbose_name = "Статья")
+
+    def __str__(self):
+        return 'Комментарий %d %s к %s' % (self.id, self.author, self.post)
+
+    class Meta:
+        db_table = "Comments"
+        ordering = ["-date"]
+        verbose_name = "Комментарий к статье блога"
+        verbose_name_plural = "Комментарии к статьям блога"
+admin.site.register(Comment)
+

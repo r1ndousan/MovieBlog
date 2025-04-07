@@ -2,13 +2,49 @@
 
 {% block content %}
 <div class="blogpost">
-    <h2 class="blog-title">{{ post_1.title }}</h2>
-    <p class="blog-content">{{ post_1.content|linebreaksbr }}</p>
-
-    <p><a id="links" href="{% url 'blog' %}">Назад</a></p>
+    <div class="blogpost-center">
+        <h2 class="blogpost-title">{{ post_1.title }}</h2>
+    </div>
+    <div class="blogpost-down">
+        <div class="blogpost-left">
+            {% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+            <img src="{{ post_1.image.url }}" alt="Картинка статьи блога" width="350" />
+            {% endif %}
+        </div>
+        <div class="blogpost-right">
+            <p class="blog-content">{{ post_1.content|linebreaksbr }}</p>
+            <p><a id="links" href="{% url 'blog' %}">Назад</a></p>
+        </div>
+    </div>   
 </div>
 
-<div class="comments">
-
+<div class="blogpost-comments">
+    <div class="comment-form">
+        {% if user.is_authenticated %}
+        <h3>Добавить комментарий</h3>
+        <form method="POST">
+            {% csrf_token %} {# защита от атак CSRF#}
+            <div>
+                {{form.as_p}}
+                <button type="submit" class="save btn btn-default"> Отправить комментарий </button>
+            </div>
+        </form>
+        {% else %}
+        <h3> Для добавления своего комментария, пожалуйста, авторизуйтесь </h3>
+        {% endif %}
+    </div>
+    <div class="comments-all">
+        {% for comment in comments %}
+        <div class="comments-each">
+            <div class="comment-left">
+                <div class="comment-author"> {{comment.author}} </div>
+            </div>
+            <div class="comment-right">               
+                <div class="comment-text"> {{comment.text|linebreaksbr}} </div>
+                <div class="comment-posted"> {{comment.date}} </div>
+            </div>            
+        </div>        
+        {% endfor %}
+    </div>  
 </div>
 {% endblock %}

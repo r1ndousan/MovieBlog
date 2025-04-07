@@ -57,8 +57,10 @@
     <Folder Include="MovieBlog\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\videopost.html" />
     <Content Include="app\templates\app\links.html" />
     <Content Include="app\templates\app\applic_form.html" />
+    <Content Include="app\templates\app\newpost.html" />
     <Content Include="app\templates\app\registration.html" />
     <Content Include="app\templates\app\blog.html" />
     <Content Include="app\templates\app\blogpost.html" />
